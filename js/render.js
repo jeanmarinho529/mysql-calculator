@@ -3,7 +3,7 @@ const myInit = {
     mode: 'cors',
 };
 
-fetch("../students.json", myInit)
+fetch("../types.json", myInit)
 .then(response => {
     return response.json();
 })
