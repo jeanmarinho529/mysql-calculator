@@ -1,45 +1,3 @@
-const myInit = {
-    method: 'GET',
-    mode: 'cors',
-}
-
-// fetch("../types.json", myInit)
-// .then(response => {
-//     return response.json()
-// })
-// .then(jsondata => console.log(jsondata.name))
-
-types = []
-
-
-
-// const TYPES = `[
-//     {
-//         "type": 1,
-//         "name": "TINYINT",
-//         "storage_amount" : 1
-//     },
-//     {
-//         "type": 1,
-//         "name": "SMALLINT",
-//         "storage_amount": 2
-//     },
-//     {
-//         "type": 1,
-//         "name": "MEDIUMINT",
-//         "storage_amount": 3
-//     }
-// ]`
-
-// types = JSON.parse(TYPES)
-
-fetch("./types.json", myInit)
-.then(response => {
-    return response.json()
-})
-.then(jsondata => types = jsondata)
-
-
 const INPUT = 'input'
 const SELECT = 'select'
 
@@ -69,6 +27,39 @@ const INPUTS = [
     }
 ]
 
+const myInit = {
+    method: 'GET',
+    mode: 'cors',
+}
+
+var types = []
+
+const TYPES = `[
+    {
+        "type": 1,
+        "name": "TINYINT",
+        "storage_amount" : 1
+    },
+    {
+        "type": 1,
+        "name": "SMALLINT",
+        "storage_amount": 2
+    },
+    {
+        "type": 1,
+        "name": "MEDIUMINT",
+        "storage_amount": 3
+    }
+]`
+
+types = JSON.parse(TYPES)
+
+fetch("./types.json", myInit)
+.then(response => {
+    return response.json()
+})
+.then(jsondata => types = jsondata)
+
 var amountAttributes = 0 
 var containerElemento = document.querySelector('.columns')
 var resultData = document.querySelector('.results')
@@ -82,11 +73,11 @@ newRow.addEventListener('click', (evento) => {
 calculate.addEventListener('click', (evento) => {
     evento.preventDefault()
     size = getValueRows()
-    // size = 1302
 
     createRow(resultData, ['tamnho por linha', convertByteForHuman(size, 0)])
     createRow(resultData, ['tamnho por 1Mi linha', convertByteForHuman(size*1000000)])
     createRow(resultData, ['qtd de linhas por gb', (Math.floor(GIGABYTE/size))])
+    createRow(resultData, ['', ''])
 })
 
 function createRow(containerElemento, inputs) {
