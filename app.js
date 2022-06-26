@@ -9,12 +9,12 @@ const myInit = {
 // })
 // .then(jsondata => console.log(jsondata.name))
 
-types = []
+typess = []
 fetch("./types.json", myInit)
 .then(response => {
     return response.json()
 })
-.then(jsondata => types = jsondata)
+.then(jsondata => typess = jsondata)
 
 // const TYPES = `[
 //     {
@@ -125,7 +125,7 @@ function createSelect(name, id) {
     let select = document.createElement(SELECT)
     select.setAttribute('id', `${name}-${id}`)
 
-    for (let item of types) {
+    for (let item of typess) {
         let option = document.createElement("option")
         option.value = item.name
         option.text = item.name
