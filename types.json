@@ -59,21 +59,6 @@
         "storage_amount": 3
     },
     {
-        "type": 1,
-        "name": "TIME",
-        "storage_amount": 3
-    },
-    {
-        "type": 1,
-        "name": "DATETIME",
-        "storage_amount": 5
-    },
-    {
-        "type": 1,
-        "name": "TIMESTAMP",
-        "storage_amount": 4
-    },
-    {
         "type": 4,
         "name": "CHAR",
         "storage_amount": 1
