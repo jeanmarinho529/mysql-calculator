@@ -84,11 +84,11 @@ const TYPES = `[
 
 types = JSON.parse(TYPES)
 
-// fetch("./types.json", myInit)
-// .then(response => {
-//     return response.json()
-// })
-// .then(jsondata => types = jsondata)
+fetch("./types.json", myInit)
+.then(response => {
+    return response.json()
+})
+.then(jsondata => types = jsondata)
 
 var amountAttributes = 0 
 var containerElemento = document.querySelector('.columns')
