@@ -11,31 +11,31 @@ const myInit = {
 
 types = []
 
-fetch("./types.json", myInit)
-.then(response => {
-    return response.json()
-})
-.then(jsondata => types = jsondata)
+// fetch("./types.json", myInit)
+// .then(response => {
+//     return response.json()
+// })
+// .then(jsondata => types = jsondata)
 
-// const TYPES = `[
-//     {
-//         "type": 1,
-//         "name": "TINYINT",
-//         "storage_amount" : 1
-//     },
-//     {
-//         "type": 1,
-//         "name": "SMALLINT",
-//         "storage_amount": 2
-//     },
-//     {
-//         "type": 1,
-//         "name": "MEDIUMINT",
-//         "storage_amount": 3
-//     }
-// ]`
+const TYPES = `[
+    {
+        "type": 1,
+        "name": "TINYINT",
+        "storage_amount" : 1
+    },
+    {
+        "type": 1,
+        "name": "SMALLINT",
+        "storage_amount": 2
+    },
+    {
+        "type": 1,
+        "name": "MEDIUMINT",
+        "storage_amount": 3
+    }
+]`
 
-// types = JSON.parse(TYPES)
+types = JSON.parse(TYPES)
 
 
 const INPUT = 'input'
@@ -80,7 +80,7 @@ newRow.addEventListener('click', (evento) => {
 calculate.addEventListener('click', (evento) => {
     evento.preventDefault()
     size = getValueRows()
-    size = 1302
+    // size = 1302
 
     createRow(resultData, ['tamnho por linha', convertByteForHuman(size, 0)])
     createRow(resultData, ['tamnho por 1Mi linha', convertByteForHuman(size*1000000)])
