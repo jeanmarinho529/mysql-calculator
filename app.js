@@ -49,16 +49,46 @@ const TYPES = `[
         "type": 1,
         "name": "MEDIUMINT",
         "storage_amount": 3
+    },
+    {
+        "type": 2,
+        "name": "TIMESTAMP",
+        "rules": [
+            {
+                "min": 0,
+                "max": 0,
+                "storage_amount": 4,
+                "more": 0
+            },
+            {
+                "min": 1,
+                "max": 2,
+                "storage_amount": 4,
+                "more": 1
+            },
+            {
+                "min": 3,
+                "max": 4,
+                "storage_amount": 4,
+                "more": 2
+            },
+            {
+                "min": 5,
+                "max": 6,
+                "storage_amount": 4,
+                "more": 3
+            }
+        ]
     }
 ]`
 
 types = JSON.parse(TYPES)
 
-fetch("./types.json", myInit)
-.then(response => {
-    return response.json()
-})
-.then(jsondata => types = jsondata)
+// fetch("./types.json", myInit)
+// .then(response => {
+//     return response.json()
+// })
+// .then(jsondata => types = jsondata)
 
 var amountAttributes = 0 
 var containerElemento = document.querySelector('.columns')
@@ -72,12 +102,11 @@ newRow.addEventListener('click', (evento) => {
 
 calculate.addEventListener('click', (evento) => {
     evento.preventDefault()
-    size = getValueRows()
+    size = calculateTable()
 
     createRow(resultData, ['tamnho por linha', convertByteForHuman(size, 0)])
     createRow(resultData, ['tamnho por 1Mi linha', convertByteForHuman(size*1000000)])
     createRow(resultData, ['qtd de linhas por gb', (Math.floor(GIGABYTE/size))])
-    createRow(resultData, ['', ''])
 })
 
 function createRow(containerElemento, inputs) {
@@ -142,7 +171,7 @@ function renderRows() {
 
 
 //mudar calculateTable
-function getValueRows() {
+function calculateTable() {
     //mudar armazena em uma variavel
     let values = []
     let value = 0
@@ -189,9 +218,11 @@ function calculateRow(type, length) {
 
 //mudar nome
 function olamundo(rules, length) {
+    let value
     for (let rule of rules){
         if (length >= rule.min && length <= rule.max) {
-            return attributeLength + rule.more
+            value = rule.storage_amount ? rule.storage_amount : attributeLength
+            return value + rule.more
         }
     }
 }

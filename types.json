@@ -130,13 +130,11 @@
             {
                 "min": 0,
                 "max": 255,
-                "storage_amount": 1,
                 "more": 1
             },
             {
                 "min": 256,
                 "max": 0,
-                "storage_amount": 1,
                 "more": 2
             }
         ]
@@ -148,16 +146,104 @@
             {
                 "min": 0,
                 "max": 255,
-                "storage_amount": 1,
                 "more": 1
             },
             {
                 "min": 256,
                 "max": 0,
-                "storage_amount": 1,
                 "more": 2
             }
 
+        ]
+    },
+    {
+        "type": 2,
+        "name": "TIME",
+        "rules": [
+            {
+                "min": 0,
+                "max": 0,
+                "storage_amount": 3,
+                "more": 0
+            },
+            {
+                "min": 1,
+                "max": 2,
+                "storage_amount": 3,
+                "more": 1
+            },
+            {
+                "min": 3,
+                "max": 4,
+                "storage_amount": 3,
+                "more": 2
+            },
+            {
+                "min": 5,
+                "max": 6,
+                "storage_amount": 3,
+                "more": 3
+            }
+        ]
+    },
+    {
+        "type": 2,
+        "name": "DATETIME",
+        "rules": [
+            {
+                "min": 0,
+                "max": 0,
+                "storage_amount": 5,
+                "more": 0
+            },
+            {
+                "min": 1,
+                "max": 2,
+                "storage_amount": 5,
+                "more": 1
+            },
+            {
+                "min": 3,
+                "max": 4,
+                "storage_amount": 5,
+                "more": 2
+            },
+            {
+                "min": 5,
+                "max": 6,
+                "storage_amount": 5,
+                "more": 3
+            }
+        ]
+    },
+    {
+        "type": 2,
+        "name": "TIMESTAMP",
+        "rules": [
+            {
+                "min": 0,
+                "max": 0,
+                "storage_amount": 4,
+                "more": 0
+            },
+            {
+                "min": 1,
+                "max": 2,
+                "storage_amount": 4,
+                "more": 1
+            },
+            {
+                "min": 3,
+                "max": 4,
+                "storage_amount": 4,
+                "more": 2
+            },
+            {
+                "min": 5,
+                "max": 6,
+                "storage_amount": 4,
+                "more": 3
+            }
         ]
     }
 ]
