@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    background-color: #222327;
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #121214; */
+    /* padding: 40px; */
+    border-radius: 20px;
+}
+
+input {
+    /* width: 50%; */
+    height: 25px;
+}
+
+.length {
+    width: 100%;
+}
+
+.name {
+    width: 100%;
+}
+
+table { border-collapse: collapse;}
+th, td { border: solid 1px; padding: 0 }
+td:first-child { width: 100px  }
+td:first-child + td {  width: 300px }
+td:first-child + td + td {  width: 100px }
+
+select {
+    /* appearance: none; */
+    /* -webkit-appearance: none; */
+    -moz-appearance: none;
+    height: 25px;
+
+}
+
+/* section {
+    height: 30px;
+} */
+
+/* .container {
+    display: flex;
+    flex-direction: row;
+}
+
+.entity {
+    width: 50%;
+    height: 100vh;
+    background-color: green;
+    text-align: right;
+    color: white;
+}
+
+.result {
+    width: 50%;
+    color: green;
+    height: 100vh;
+} */
