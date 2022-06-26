@@ -1,7 +1,7 @@
-// const myInit = {
-//     method: 'GET',
-//     mode: 'cors',
-// }
+const myInit = {
+    method: 'GET',
+    mode: 'cors',
+}
 
 // fetch("../types.json", myInit)
 // .then(response => {
@@ -9,36 +9,44 @@
 // })
 // .then(jsondata => console.log(jsondata.name))
 
-// mundo = []
-// fetch("./types.json", myInit)
-// .then(response => {
-//     return response.json()
-// })
-// .then(jsondata => mundo = jsondata)
+types = []
+fetch("./types.json", myInit)
+.then(response => {
+    return response.json()
+})
+.then(jsondata => types = jsondata)
 
-const TYPES = `[
-    {
-        "type": 1,
-        "name": "TINYINT",
-        "storage_amount" : 1
-    },
-    {
-        "type": 1,
-        "name": "SMALLINT",
-        "storage_amount": 2
-    },
-    {
-        "type": 1,
-        "name": "MEDIUMINT",
-        "storage_amount": 3
-    }
-]`
+// const TYPES = `[
+//     {
+//         "type": 1,
+//         "name": "TINYINT",
+//         "storage_amount" : 1
+//     },
+//     {
+//         "type": 1,
+//         "name": "SMALLINT",
+//         "storage_amount": 2
+//     },
+//     {
+//         "type": 1,
+//         "name": "MEDIUMINT",
+//         "storage_amount": 3
+//     }
+// ]`
 
-types = JSON.parse(TYPES)
+// types = JSON.parse(TYPES)
 
 
 const INPUT = 'input'
 const SELECT = 'select'
+
+const FIXED = 1
+const VARIABLE = 2
+const SUM = 3
+const MULTIPLIE = 4
+
+const MEGABYTE = 1048576
+const GIGABYTE = 1073741824
 
 const calculate = document.querySelector('#calculate')
 const newRow = document.querySelector('#newRow')
@@ -68,6 +76,16 @@ newRow.addEventListener('click', (evento) => {
     createRow(containerElemento, INPUTS)
 })
 
+calculate.addEventListener('click', (evento) => {
+    evento.preventDefault()
+    size = getValueRows()
+    size = 1302
+
+    createRow(resultData, ['tamnho por linha', convertByteForHuman(size, 0)])
+    createRow(resultData, ['tamnho por 1Mi linha', convertByteForHuman(size*1000000)])
+    createRow(resultData, ['qtd de linhas por gb', (Math.floor(GIGABYTE/size))])
+})
+
 function createRow(containerElemento, inputs) {
 
     let tbody  = document.createElement('tbody')
@@ -81,13 +99,13 @@ function createRow(containerElemento, inputs) {
     for (let input of inputs) {
         let th = document.createElement('th')
         row.appendChild(th) 
-        console.log(input)
+
         if (input.type === INPUT) {
             elemento = createInput(input.name, amountAttributes)
         } else if (input.type === SELECT) {
             elemento = createSelect(input.name, amountAttributes)
         } else {
-            elemento = document.createTextNode(input)
+            elemento = document.createTextNode(input);
         }
 
         th.appendChild(elemento)
@@ -118,31 +136,16 @@ function createSelect(name, id) {
     return select
 }
 
-function render() {
+function renderRows() {
     for (let i = 0; i < 3; i++) {
         createRow(containerElemento, INPUTS)
     }
 }
 
-render()
+renderRows()
 
 // ----------------------------------------------
 
-const FIXED = 1
-const VARIABLE = 2
-const SUM = 3
-const MULTIPLIE = 4
-
-calculate.addEventListener('click', (evento) => {
-    evento.preventDefault()
-    size = getValueRows()
-    size = 1302
-    // size = 1048576
-
-    createRow(resultData, ['tamnho por linha', convertByte(size, 0).for_humans])
-    createRow(resultData, ['tamnho por 1Mi linha', convertByte(size*1000000).for_humans])
-    createRow(resultData, ['qtd de linhas por gb', (Math.floor(GIGABYTE/size))])
-})
 
 //mudar calculateTable
 function getValueRows() {
@@ -202,24 +205,18 @@ function olamundo(rules, length) {
 // -------------------------------------------------
 
 
-const MEGABYTE = 1048576
-const GIGABYTE = 1073741824
-
-function convertByte(size, number = 2) {
+function convertByteForHuman(size, number = 2) {
     let type = 'B'
     let result = size
-    if (size >= MEGABYTE) {
+
+    if (size >= GIGABYTE) {
+        result = size / GIGABYTE
+        type = 'GB'
+    } 
+    else if (size >= MEGABYTE) {
         result = size / MEGABYTE
         type = 'MB'
     } 
-    if (size >= GIGABYTE){
-        result = size / GIGABYTE
-        type = 'GB'
-    }
 
-    return {
-        result: result,
-        type: type,
-        for_humans: (`${result.toFixed(number)} ${type}`)
-    }
+    return `${result.toFixed(number)} ${type}`
 }
