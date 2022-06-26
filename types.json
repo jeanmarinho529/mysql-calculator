@@ -59,17 +59,17 @@
         "storage_amount": 3
     },
     {
-        "type": 1,//5-
+        "type": 1,
         "name": "TIME",
         "storage_amount": 3
     },
     {
-        "type": 1,//5-
+        "type": 1,
         "name": "DATETIME",
         "storage_amount": 5
     },
     {
-        "type": 1, //5-
+        "type": 1,
         "name": "TIMESTAMP",
         "storage_amount": 4
     },
