@@ -1,13 +1,13 @@
-// var myInit = {
-//     method: 'GET',
-//     mode: 'cors',
-// };
+const myInit = {
+    method: 'GET',
+    mode: 'cors',
+};
 
-// fetch("./students.json", myInitt)
-// .then(response => {
-//     return response.json();
-// })
-// .then(jsondata => console.log(jsondata));
+fetch("../students.json", myInit)
+.then(response => {
+    return response.json();
+})
+.then(jsondata => console.log(jsondata));
 
 
 const INPUT = 'input'

@@ -1,0 +1,163 @@
+[
+    {
+        "type": 1,
+        "name": "TINYINT",
+        "storage_amount" : 1
+    },
+    {
+        "type": 1,
+        "name": "SMALLINT",
+        "storage_amount": 2
+    },
+    {
+        "type": 1,
+        "name": "MEDIUMINT",
+        "storage_amount": 3
+    },
+    {
+        "type": 1,
+        "name": "INT",
+        "storage_amount": 4
+    },
+    {
+        "type": 1,
+        "name": "BIGINT",
+        "storage_amount": 8
+    },
+    {
+        "type": 2,
+        "name": "FLOAT",
+        "rules": [
+            {
+                "min": 0,
+                "max": 24,
+                "storage_amount": 4,
+                "more": 0
+            },
+            {
+                "min": 25,
+                "max": 53,
+                "storage_amount": 8,
+                "more": 0
+            }
+
+        ]
+    },
+    {
+        "type": 1,
+        "name": "DOUBLE",
+        "storage_amount": 8
+    },
+    {
+        "type": 1,
+        "name": "YEAR",
+        "storage_amount": 1
+    },
+    {
+        "type": 1,
+        "name": "DATE",
+        "storage_amount": 3
+    },
+    {
+        "type": 1,//5-
+        "name": "TIME",
+        "storage_amount": 3
+    },
+    {
+        "type": 1,//5-
+        "name": "DATETIME",
+        "storage_amount": 5
+    },
+    {
+        "type": 1, //5-
+        "name": "TIMESTAMP",
+        "storage_amount": 4
+    },
+    {
+        "type": 4,
+        "name": "CHAR",
+        "storage_amount": 1
+    },
+    {
+        "type": 4,
+        "name": "BINARY",
+        "storage_amount": 1
+    },
+    {
+        "type": 3,
+        "name": "TINYBLOB",
+        "storage_amount": 1
+    },
+    {
+        "type": 3,
+        "name": "TINYTEXT",
+        "storage_amount": 1
+    },
+    {
+        "type": 3,
+        "name": "BLOB",
+        "storage_amount": 2
+    },
+    {
+        "type": 3,
+        "name": "TEXT",
+        "storage_amount": 2
+    },
+    {
+        "type": 3,
+        "name": "MEDIUMBLOB",
+        "storage_amount": 3
+    },
+    {
+        "type": 3,
+        "name": "MEDIUMTEXT",
+        "storage_amount": 3
+    },
+    {
+        "type": 3,
+        "name": "LONGBLOB",
+        "storage_amount": 4
+    },
+    {
+        "type": 3,
+        "name": "LONGTEXT",
+        "storage_amount": 4
+    },
+    {
+        "type": 2,
+        "name": "VARCHAR",
+        "rules": [
+            {
+                "min": 0,
+                "max": 255,
+                "storage_amount": 1,
+                "more": 1
+            },
+            {
+                "min": 256,
+                "max": 0,
+                "storage_amount": 1,
+                "more": 2
+            }
+        ]
+    },
+    {
+        "type": 2,
+        "name": "VARBINARY",
+        "rules": [
+            {
+                "min": 0,
+                "max": 255,
+                "storage_amount": 1,
+                "more": 1
+            },
+            {
+                "min": 256,
+                "max": 0,
+                "storage_amount": 1,
+                "more": 2
+            }
+
+        ]
+    }
+]
