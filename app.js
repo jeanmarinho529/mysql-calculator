@@ -10,11 +10,7 @@ const myInit = {
 // .then(jsondata => console.log(jsondata.name))
 
 typess = []
-fetch("./types.json", myInit)
-.then(response => {
-    return response.json()
-})
-.then(jsondata => typess = jsondata)
+
 
 // const TYPES = `[
 //     {
@@ -137,6 +133,12 @@ function createSelect(name, id) {
 }
 
 function renderRows() {
+    fetch("./types.json", myInit)
+    .then(response => {
+        return response.json()
+    })
+    .then(jsondata => typess = jsondata)
+
     for (let i = 0; i < 3; i++) {
         createRow(containerElemento, INPUTS)
     }
