@@ -79,6 +79,36 @@ const TYPES = `[
                 "more": 3
             }
         ]
+    },
+    {
+        "type": 2,
+        "name": "DECIMAL",
+        "rules": [
+            {
+                "min": 1,
+                "max": 2,
+                "storage_amount": 4,
+                "more": 1
+            },
+            {
+                "min": 3,
+                "max": 4,
+                "storage_amount": 4,
+                "more": 2
+            },
+            {
+                "min": 5,
+                "max": 6,
+                "storage_amount": 4,
+                "more": 3
+            },
+            {
+                "min": 7,
+                "max": 8,
+                "storage_amount": 4,
+                "more": 4
+            }
+        ]
     }
 ]`
 
