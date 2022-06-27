@@ -3,6 +3,8 @@ const myInit = {
     mode: 'cors',
 }
 
+let types = []
+
 fetch("./types.json", myInit)
 .then(response => {
     return response.json()
@@ -17,5 +19,5 @@ containerElemento.appendChild(pre)
 let code = document.createElement('code')
 pre.appendChild(code)
 
-elemento = document.createTextNode(TYPES);
+elemento = document.createTextNode(types);
 code.appendChild(elemento)
